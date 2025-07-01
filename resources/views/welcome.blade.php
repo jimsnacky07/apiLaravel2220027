@@ -70,6 +70,14 @@
                 <span class="hide-menu">Matakuliah</span>
               </a>
             </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ route('krs.index') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-book"></i>
+                </span>
+                <span class="hide-menu">KRS</span>
+              </a>
+            </li>
             <!-- Add more menu items as needed -->
           </ul>
         </nav>

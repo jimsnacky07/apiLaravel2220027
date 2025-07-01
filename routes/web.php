@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\KrsController;
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
@@ -21,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('matakuliah', MatakuliahController::class);
     Route::resource('mahasiswa', MahasiswaController::class);
     Route::resource('dosen', DosenController::class);
+    Route::resource('user', UserController::class);
+    Route::resource('krs', KrsController::class);
     Route::resource('users', UserController::class);
 });
 

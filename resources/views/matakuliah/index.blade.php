@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <th>Kode</th>
-                    <th>Nama</th>
+                    <th>Nama Matakuliah</th>
                     <th>SKS</th>
                     <th>Semester</th>
                     <th>Aksi</th>
@@ -23,7 +23,7 @@
                 @foreach($matakuliahs as $mk)
                 <tr>
                     <td>{{ $mk->kode }}</td>
-                    <td>{{ $mk->nama }}</td>
+                    <td>{{ $mk->namamatkul }}</td>
                     <td>{{ $mk->sks }}</td>
                     <td>{{ $mk->semester }}</td>
                     <td>

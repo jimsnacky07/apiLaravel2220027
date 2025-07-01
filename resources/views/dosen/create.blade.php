@@ -6,12 +6,12 @@
         <form action="{{ route('dosen.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label>NIP</label>
-                <input type="text" name="nip" class="form-control" required>
+                <label>NIDN</label>
+                <input type="text" name="nidn" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label>Nama</label>
-                <input type="text" name="nama" class="form-control" required>
+                <input type="text" name="namadosen" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label>Email</label>

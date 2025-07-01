@@ -31,11 +31,16 @@ class MatakuliahController extends Controller
     {
         $request->validate([
             'kode' => 'required|unique:matakuliahs',
-            'nama' => 'required',
+            'namamatkul' => 'required',
             'sks' => 'required|integer',
             'semester' => 'required',
         ]);
-        Matakuliah::create($request->all());
+        Matakuliah::create([
+            'kode' => $request->kode,
+            'namamatkul' => $request->namamatkul,
+            'sks' => $request->sks,
+            'semester' => $request->semester,
+        ]);
         return redirect()->route('matakuliah.index')->with('success', 'Data matakuliah berhasil ditambahkan');
     }
 
@@ -62,11 +67,16 @@ class MatakuliahController extends Controller
     {
         $request->validate([
             'kode' => 'required|unique:matakuliahs,kode,' . $matakuliah->id,
-            'nama' => 'required',
+            'namamatkul' => 'required',
             'sks' => 'required|integer',
             'semester' => 'required',
         ]);
-        $matakuliah->update($request->all());
+        $matakuliah->update([
+            'kode' => $request->kode,
+            'namamatkul' => $request->namamatkul,
+            'sks' => $request->sks,
+            'semester' => $request->semester,
+        ]);
         return redirect()->route('matakuliah.index')->with('success', 'Data matakuliah berhasil diubah');
     }
 

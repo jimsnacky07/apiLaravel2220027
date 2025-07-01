@@ -7,12 +7,12 @@
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label>NIP</label>
-                <input type="text" name="nip" class="form-control" value="{{ $dosen->nip }}" required>
+                <label>NIDN</label>
+                <input type="text" name="nidn" class="form-control" value="{{ $dosen->nidn }}" required>
             </div>
             <div class="mb-3">
                 <label>Nama</label>
-                <input type="text" name="nama" class="form-control" value="{{ $dosen->nama }}" required>
+                <input type="text" name="namadosen" class="form-control" value="{{ $dosen->namadosen }}" required>
             </div>
             <div class="mb-3">
                 <label>Email</label>

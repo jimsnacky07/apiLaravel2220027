@@ -14,4 +14,9 @@ class Mahasiswa extends Model
         'jurusan',
         'foto',
     ];
+
+    public function krs()
+    {
+        return $this->hasMany(Krs::class);
+    }
 }

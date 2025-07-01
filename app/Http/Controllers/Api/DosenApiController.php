@@ -22,8 +22,8 @@ class DosenApiController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nip' => 'required|unique:dosens',
-            'nama' => 'required',
+            'nidn' => 'required|unique:dosens',
+            'namadosen' => 'required',
             'email' => 'required|email|unique:dosens',
             'telepon' => 'nullable',
             'alamat' => 'nullable',
@@ -45,8 +45,8 @@ class DosenApiController extends Controller
     public function update(Request $request, Dosen $dosen)
     {
         $data = $request->validate([
-            'nip' => 'required|unique:dosens,nip,' . $dosen->id,
-            'nama' => 'required',
+            'nidn' => 'required|unique:dosens,nidn,' . $dosen->id,
+            'namadosen' => 'required',
             'email' => 'required|email|unique:dosens,email,' . $dosen->id,
             'telepon' => 'nullable',
             'alamat' => 'nullable',

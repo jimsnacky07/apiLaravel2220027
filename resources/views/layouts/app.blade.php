@@ -66,7 +66,7 @@
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
-                <span class="hide-menu">Matakuliah</span>
+                <span class="hide-menu">Matakuliahh</span>
               </a>
             </li>
             <!-- Add more menu items as needed -->

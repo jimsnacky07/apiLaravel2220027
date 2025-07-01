@@ -10,6 +10,15 @@ class Dosen extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nip', 'nama', 'email', 'telepon', 'alamat'
+        'nidn',
+        'namadosen',
+        'email',
+        'telepon',
+        'alamat'
     ];
+
+    public function krs()
+    {
+        return $this->hasMany(Krs::class);
+    }
 }

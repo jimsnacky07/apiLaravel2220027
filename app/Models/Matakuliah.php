@@ -10,6 +10,14 @@ class Matakuliah extends Model
     use HasFactory;
 
     protected $fillable = [
-        'kode', 'nama', 'sks', 'semester'
+        'kode',
+        'namamatkul',
+        'sks',
+        'semester'
     ];
+
+    public function krs()
+    {
+        return $this->hasMany(Krs::class);
+    }
 }

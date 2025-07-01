@@ -12,7 +12,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>NIP</th>
+                    <th>NIDN</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Telepon</th>
@@ -23,8 +23,8 @@
             <tbody>
                 @foreach($dosens as $dosen)
                 <tr>
-                    <td>{{ $dosen->nip }}</td>
-                    <td>{{ $dosen->nama }}</td>
+                    <td>{{ $dosen->nidn }}</td>
+                    <td>{{ $dosen->namadosen }}</td>
                     <td>{{ $dosen->email }}</td>
                     <td>{{ $dosen->telepon }}</td>
                     <td>{{ $dosen->alamat }}</td>
