@@ -23,7 +23,7 @@ class MatakuliahApiController extends Controller
     {
         $data = $request->validate([
             'kode' => 'required|unique:matakuliahs',
-            'nama' => 'required',
+            'namamatkul' => 'required',
             'sks' => 'required|integer',
             'semester' => 'required',
         ]);
@@ -45,7 +45,7 @@ class MatakuliahApiController extends Controller
     {
         $data = $request->validate([
             'kode' => 'required|unique:matakuliahs,kode,' . $matakuliah->id,
-            'nama' => 'required',
+            'namamatkul' => 'required',
             'sks' => 'required|integer',
             'semester' => 'required',
         ]);

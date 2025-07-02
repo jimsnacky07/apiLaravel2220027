@@ -27,4 +27,4 @@ Route::apiResource('buku', BukuController::class);
 Route::apiResource('user', UserController::class);
 Route::apiResource('matakuliah', MatakuliahApiController::class);
 Route::apiResource('dosen', DosenApiController::class);
-Route::get('/krs', [KrsApiController::class, 'index']);
+Route::apiResource('krs', KrsApiController::class);
