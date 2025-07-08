@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('dosens', function (Blueprint $table) {
             $table->id();
-            $table->string('nidn')->unique(); // ubah dari 'nip' ke 'nidn' sesuai ERD
-            $table->string('namadosen');      // ubah dari 'nama'
-            $table->string('email')->unique();
-            $table->string('telepon')->nullable();
-            $table->text('alamat')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('namadosen');
+            $table->string('nidn')->unique();
+            $table->string('telepon');
+            $table->text('alamat');
             $table->timestamps();
         });
     }

@@ -7,16 +7,21 @@
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label>NIDN</label>
-                <input type="text" name="nidn" class="form-control" value="{{ $dosen->nidn }}" required>
+                <label>User</label>
+                <select name="user_id" class="form-control" required>
+                    <option value="">-- Pilih User --</option>
+                    @foreach(App\Models\User::all() as $user)
+                        <option value="{{ $user->id }}" @if($dosen->user_id == $user->id) selected @endif>{{ $user->email }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
-                <label>Nama</label>
+                <label>Nama Dosen</label>
                 <input type="text" name="namadosen" class="form-control" value="{{ $dosen->namadosen }}" required>
             </div>
             <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" value="{{ $dosen->email }}" required>
+                <label>NIDN</label>
+                <input type="text" name="nidn" class="form-control" value="{{ $dosen->nidn }}" required>
             </div>
             <div class="mb-3">
                 <label>Telepon</label>

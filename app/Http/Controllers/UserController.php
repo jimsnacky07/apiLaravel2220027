@@ -31,14 +31,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'status' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
         User::create([
-            'name' => $request->name,
             'email' => $request->email,
+            'status' => $request->status,
             'password' => Hash::make($request->password),
         ]);
 
@@ -67,18 +67,16 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'status' => 'required|string|max:255',
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 
-        $user->name = $request->name;
         $user->email = $request->email;
-        
+        $user->status = $request->status;
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
         }
-
         $user->save();
 
         return redirect()->route('users.index')->with('success', 'Pengguna berhasil diperbarui');

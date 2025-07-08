@@ -22,12 +22,13 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'namamahasiswa' => 'required',
             'nobp' => 'required|unique:mahasiswas',
-            'nama' => 'required',
             'jurusan' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-        $data = $request->only(['nobp', 'nama', 'jurusan']);
+        $data = $request->only(['user_id', 'namamahasiswa', 'nobp', 'jurusan']);
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto_mahasiswa', 'public');
         }
@@ -45,12 +46,13 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
         $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'namamahasiswa' => 'required',
             'nobp' => 'required|unique:mahasiswas,nobp,' . $id,
-            'nama' => 'required',
             'jurusan' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-        $data = $request->only(['nobp', 'nama', 'jurusan']);
+        $data = $request->only(['user_id', 'namamahasiswa', 'nobp', 'jurusan']);
         if ($request->hasFile('foto')) {
             if ($mahasiswa->foto) {
                 Storage::disk('public')->delete($mahasiswa->foto);

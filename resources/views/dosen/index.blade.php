@@ -12,9 +12,9 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>User</th>
+                    <th>Nama Dosen</th>
                     <th>NIDN</th>
-                    <th>Nama</th>
-                    <th>Email</th>
                     <th>Telepon</th>
                     <th>Alamat</th>
                     <th>Aksi</th>
@@ -23,9 +23,9 @@
             <tbody>
                 @foreach($dosens as $dosen)
                 <tr>
-                    <td>{{ $dosen->nidn }}</td>
+                    <td>{{ $dosen->user ? $dosen->user->email : '-' }}</td>
                     <td>{{ $dosen->namadosen }}</td>
-                    <td>{{ $dosen->email }}</td>
+                    <td>{{ $dosen->nidn }}</td>
                     <td>{{ $dosen->telepon }}</td>
                     <td>{{ $dosen->alamat }}</td>
                     <td>

@@ -10,9 +10,9 @@
 <form method="POST" action="{{ route('register') }}">
     @csrf
     <div class="mb-3">
-        <label for="name" class="form-label">Nama Lengkap</label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
-        @error('name')
+        <label for="status" class="form-label">Status</label>
+        <input type="text" class="form-control @error('status') is-invalid @enderror" id="status" name="status" value="{{ old('status') }}" required>
+        @error('status')
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>

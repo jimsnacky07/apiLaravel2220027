@@ -10,12 +10,17 @@ class Dosen extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nidn',
+        'user_id',
         'namadosen',
-        'email',
+        'nidn',
         'telepon',
         'alamat'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function krs()
     {

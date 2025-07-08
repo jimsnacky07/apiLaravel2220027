@@ -19,10 +19,10 @@
                             <h6 class="fw-semibold mb-0">ID</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Nama</h6>
+                            <h6 class="fw-semibold mb-0">Email</h6>
                         </th>
                         <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">Email</h6>
+                            <h6 class="fw-semibold mb-0">Status</h6>
                         </th>
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Aksi</h6>
@@ -33,8 +33,8 @@
                     @foreach($users as $user)
                     <tr>
                         <td class="border-bottom-0">{{ $user->id }}</td>
-                        <td class="border-bottom-0">{{ $user->name }}</td>
                         <td class="border-bottom-0">{{ $user->email }}</td>
+                        <td class="border-bottom-0">{{ $user->status }}</td>
                         <td class="border-bottom-0">                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Ubah</a>
                             <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline;">
                                 @csrf

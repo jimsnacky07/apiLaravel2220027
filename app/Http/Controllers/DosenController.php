@@ -30,13 +30,13 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nidn' => 'required|unique:dosens',
+            'user_id' => 'required|exists:users,id',
             'namadosen' => 'required',
-            'email' => 'required|email|unique:dosens',
+            'nidn' => 'required|unique:dosens',
             'telepon' => 'nullable',
             'alamat' => 'nullable',
         ]);
-        Dosen::create($request->all());
+        Dosen::create($request->only(['user_id', 'namadosen', 'nidn', 'telepon', 'alamat']));
         return redirect()->route('dosen.index')->with('success', 'Data dosen berhasil ditambahkan');
     }
 
@@ -62,13 +62,13 @@ class DosenController extends Controller
     public function update(Request $request, Dosen $dosen)
     {
         $request->validate([
-            'nidn' => 'required|unique:dosens,nidn,' . $dosen->id,
+            'user_id' => 'required|exists:users,id',
             'namadosen' => 'required',
-            'email' => 'required|email|unique:dosens,email,' . $dosen->id,
+            'nidn' => 'required|unique:dosens,nidn,' . $dosen->id,
             'telepon' => 'nullable',
             'alamat' => 'nullable',
         ]);
-        $dosen->update($request->all());
+        $dosen->update($request->only(['user_id', 'namadosen', 'nidn', 'telepon', 'alamat']));
         return redirect()->route('dosen.index')->with('success', 'Data dosen berhasil diubah');
     }
 

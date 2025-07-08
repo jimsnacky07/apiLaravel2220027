@@ -11,8 +11,9 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>User</th>
+                <th>Nama Mahasiswa</th>
                 <th>No BP</th>
-                <th>Nama</th>
                 <th>Jurusan</th>
                 <th>Foto</th>
                 <th>Aksi</th>
@@ -22,8 +23,9 @@
             @foreach($mahasiswa as $mhs)
             <tr>
                 <td>{{ $loop->iteration }}</td>
+                <td>{{ $mhs->user ? $mhs->user->email : '-' }}</td>
+                <td>{{ $mhs->namamahasiswa }}</td>
                 <td>{{ $mhs->nobp }}</td>
-                <td>{{ $mhs->nama }}</td>
                 <td>{{ $mhs->jurusan }}</td>
                 <td>
                     @if($mhs->foto)

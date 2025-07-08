@@ -23,7 +23,7 @@
             @foreach($krsList as $krs)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $krs->mahasiswa->nama }}</td>
+                <td>{{ $krs->mahasiswa->namamahasiswa }}</td>
                 <td>{{ $krs->matakuliah->namamatkul }}</td>
                 <td>{{ $krs->dosen->namadosen }}</td>
                 <td>{{ $krs->tahun_akademik }}</td>

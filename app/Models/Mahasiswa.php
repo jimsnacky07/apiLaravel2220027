@@ -9,11 +9,17 @@ class Mahasiswa extends Model
     protected $table = 'mahasiswas';
 
     protected $fillable = [
+        'user_id',
+        'namamahasiswa',
         'nobp',
-        'nama',
         'jurusan',
         'foto',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function krs()
     {

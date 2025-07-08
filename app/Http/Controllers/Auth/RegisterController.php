@@ -17,23 +17,24 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
+
         $request->validate([
-            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'status' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
         ], [
-            'name.required' => 'Nama harus diisi',
             'email.required' => 'Email harus diisi',
             'email.email' => 'Format email tidak valid',
             'email.unique' => 'Email sudah terdaftar',
+            'status.required' => 'Status harus diisi',
             'password.required' => 'Kata sandi harus diisi',
             'password.min' => 'Kata sandi minimal 8 karakter',
             'password.confirmed' => 'Konfirmasi kata sandi tidak cocok',
         ]);
 
         $user = User::create([
-            'name' => $request->name,
             'email' => $request->email,
+            'status' => $request->status,
             'password' => Hash::make($request->password),
         ]);
 

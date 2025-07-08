@@ -54,7 +54,7 @@
                         <select name="mahasiswa_id[]" class="form-control" required>
                             <option value="">-- Pilih Mahasiswa --</option>
                             @foreach($mahasiswas as $mhs)
-                                <option value="{{ $mhs->id }}">{{ $mhs->nobp ?? '-' }} - {{ $mhs->nama ?? 'Tanpa Nama' }}</option>
+                                <option value="{{ $mhs->id }}">{{ $mhs->nobp ?? '-' }} - {{ $mhs->namamahasiswa ?? 'Tanpa Nama' }}</option>
                             @endforeach
                         </select>
                     </td>

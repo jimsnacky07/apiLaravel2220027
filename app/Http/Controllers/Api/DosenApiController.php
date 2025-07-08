@@ -22,13 +22,13 @@ class DosenApiController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nidn' => 'required|unique:dosens',
+            'user_id' => 'required|exists:users,id',
             'namadosen' => 'required',
-            'email' => 'required|email|unique:dosens',
+            'nidn' => 'required|unique:dosens',
             'telepon' => 'nullable',
             'alamat' => 'nullable',
         ]);
-        return Dosen::create($data);
+        return Dosen::create($request->only(['user_id', 'namadosen', 'nidn', 'telepon', 'alamat']));
     }
 
     /**
@@ -45,13 +45,13 @@ class DosenApiController extends Controller
     public function update(Request $request, Dosen $dosen)
     {
         $data = $request->validate([
-            'nidn' => 'required|unique:dosens,nidn,' . $dosen->id,
+            'user_id' => 'required|exists:users,id',
             'namadosen' => 'required',
-            'email' => 'required|email|unique:dosens,email,' . $dosen->id,
+            'nidn' => 'required|unique:dosens,nidn,' . $dosen->id,
             'telepon' => 'nullable',
             'alamat' => 'nullable',
         ]);
-        $dosen->update($data);
+        $dosen->update($request->only(['user_id', 'namadosen', 'nidn', 'telepon', 'alamat']));
         return $dosen;
     }
 

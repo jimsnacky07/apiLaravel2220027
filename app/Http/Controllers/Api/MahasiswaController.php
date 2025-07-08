@@ -28,12 +28,13 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nobp' => 'required|string|max:255',
-            'nama' => 'required|string|max:255',
+            'user_id' => 'required|exists:users,id',
+            'namamahasiswa' => 'required|string|max:255',
+            'nobp' => 'required|string|max:255|unique:mahasiswas',
             'jurusan' => 'required|string|max:255',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $data = $request->only(['nobp', 'nama', 'jurusan']);
+        $data = $request->only(['user_id', 'namamahasiswa', 'nobp', 'jurusan']);
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto_mahasiswa', 'public');
         }
@@ -56,12 +57,13 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
         $request->validate([
-            'nobp' => 'required|string|max:255',
-            'nama' => 'required|string|max:255',
+            'user_id' => 'required|exists:users,id',
+            'namamahasiswa' => 'required|string|max:255',
+            'nobp' => 'required|string|max:255|unique:mahasiswas,nobp,' . $id,
             'jurusan' => 'required|string|max:255',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $data = $request->only(['nobp', 'nama', 'jurusan']);
+        $data = $request->only(['user_id', 'namamahasiswa', 'nobp', 'jurusan']);
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto_mahasiswa', 'public');
         }
