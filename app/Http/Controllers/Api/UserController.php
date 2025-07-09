@@ -30,9 +30,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
+            'name' => 'required|string|max:255',
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
@@ -51,9 +52,10 @@ class UserController extends Controller
         }
 
         $validated = $request->validate([
-            'name' => 'sometimes|required|string|max:255',
+            'status' => 'sometimes|required|string|max:255',
             'email' => 'sometimes|required|email|unique:users,email,' . $id,
             'password' => 'sometimes|required|string|min:6',
+            'name' => 'sometimes|required|string|max:255',
         ]);
 
         if (isset($validated['password'])) {

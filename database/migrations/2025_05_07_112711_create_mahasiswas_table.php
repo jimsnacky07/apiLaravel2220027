@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('namamahasiswa');
             $table->string('nobp')->unique();
             $table->string('jurusan');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

@@ -32,7 +32,7 @@ class MahasiswaController extends Controller
             'namamahasiswa' => 'required|string|max:255',
             'nobp' => 'required|string|max:255|unique:mahasiswas',
             'jurusan' => 'required|string|max:255',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $data = $request->only(['user_id', 'namamahasiswa', 'nobp', 'jurusan']);
         if ($request->hasFile('foto')) {
@@ -61,7 +61,7 @@ class MahasiswaController extends Controller
             'namamahasiswa' => 'required|string|max:255',
             'nobp' => 'required|string|max:255|unique:mahasiswas,nobp,' . $id,
             'jurusan' => 'required|string|max:255',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $data = $request->only(['user_id', 'namamahasiswa', 'nobp', 'jurusan']);
         if ($request->hasFile('foto')) {
